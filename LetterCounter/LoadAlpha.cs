@@ -47,29 +47,6 @@ namespace LetterCounter
             //file.Close();
         }
 
-        //public static void ExportJson()
-        //{
-        //    var ru=new AlphaBet();
-        //    ru.vovels = "ЁУЕЫАОЭЯИЮёуеыааоэяию";
-        //    ru.cons = "ЙЦКНГШЩЗХЪФВПРЛДЖЧСМТЬБйцкнгшщзхъфвпрлджчсмтьб";
-        //    ru.symbols= ":~`!@#$%^&*()_+-={}[]:;',./<>?";
-
-        //    var en = new AlphaBet();
-
-
-
-
-        //    //var file = new FileStream("alphabet_ru", FileMode.Create);
-        //    string jsonString=JsonSerializer.Serialize(ru);
-        //    //file.Close();
-        //    File.WriteAllText("alphabet_ru", jsonString);
-
-        //    //var file1 = new FileStream("alphabet_en", FileMode.Create);
-        //    string jsonString1=JsonSerializer.Serialize(en);
-        //    File.WriteAllText("alphabet_en", jsonString1);
-            //file1.Close();
-
-
-        //}
+       
     }
 }

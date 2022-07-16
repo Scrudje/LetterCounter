@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
+using System.Threading;
 
 namespace LetterCounter
 {
@@ -10,7 +11,10 @@ namespace LetterCounter
     {
 
         
-         AlphaBet alpha = new AlphaBet();
+        AlphaBet alpha = new AlphaBet();
+        int vovel_count;
+        int cons_count;
+        int symbols_count;
 
         public MainWindow()
         {
@@ -22,7 +26,9 @@ namespace LetterCounter
         {
             var text = InputText.Text.ToString();
             Calculate(text);
-
+            VovelsCount.Text = vovel_count.ToString();
+            ConsCount.Text = cons_count.ToString();
+            SymbolCount.Text = symbols_count.ToString();
         }
 
         private async Task Calculate(string text)
@@ -30,20 +36,21 @@ namespace LetterCounter
             await Task.Run(() => VovelsVeiw(text));
             await Task.Run(() => ConsVeiw(text));
             await Task.Run(() => SymbolView(text));
+            
         }
 
-        void VovelsVeiw(string text)
+         void VovelsVeiw(string text)
         {
-            VovelsCount.Text = CounterLetters.Count(text, alpha.vovels).ToString();
+            vovel_count = CounterLetters.Count(text, alpha.vovels);
         }
         void ConsVeiw(string text)
         {
-            ConsCount.Text = CounterLetters.Count(text, alpha.cons).ToString();
+            cons_count = CounterLetters.Count(text, alpha.cons);
         }
         void SymbolView(string text)
         {
 
-            SymbolCount.Text = CounterLetters.Count(text, alpha.symbols).ToString();
+            symbols_count= CounterLetters.Count(text, alpha.symbols);
         }
 
         private void Lang_Selected(object sender, RoutedEventArgs e)
