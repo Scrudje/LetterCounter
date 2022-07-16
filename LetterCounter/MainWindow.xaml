@@ -1,0 +1,43 @@
+﻿<Window x:Class="LetterCounter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LetterCounter"
+        mc:Ignorable="d"
+        Title="LetterCounter" Height="450" Width="800">
+
+    <Window.Resources>
+        <ResourceDictionary Source="MainWindowStyles.xaml"/>
+    </Window.Resources>
+
+
+    <StackPanel x:Name="Main" Style="{StaticResource StyleMain}">
+        <TextBox x:Name="InputText" Style="{StaticResource StyleTextBox}">
+           Введите текст:
+        </TextBox>
+        <WrapPanel>
+            <Button x:Name="Calc" Style="{StaticResource StyleButton}" Click="Calc_Click">
+                Рассчитать
+            </Button>
+            <StackPanel x:Name="Output" Style="{StaticResource StyleOutput}">
+                <WrapPanel>
+                    <Label>Количество гласных:</Label>
+                    <TextBlock x:Name="VovelsCount" Text="0" Style="{StaticResource StyleTextBlock}"></TextBlock>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label>Количество согласных:</Label>
+                    <TextBlock x:Name="ConsCount" Text="0" Style="{StaticResource StyleTextBlock}"></TextBlock>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label>Количество символов:</Label>
+                    <TextBlock x:Name="SymbolCount" Text="0" Style="{StaticResource StyleTextBlock}"></TextBlock>
+                </WrapPanel>
+
+            </StackPanel>
+            
+        </WrapPanel>
+        
+        
+    </StackPanel>
+</Window>
