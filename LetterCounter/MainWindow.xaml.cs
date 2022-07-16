@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LetterCounter
 {
@@ -20,20 +8,61 @@ namespace LetterCounter
     /// </summary>
     public partial class MainWindow : Window
     {
-        const string vovels = "ЁУЕЫАОЭЯИЮёуеыааоэяию";
-        const string cons = "ЙЦКНГШЩЗХЪФВПРЛДЖЧСМТЬБйцкнгшщзхъфвпрлджчсмтьб";
-        const string symbols = "~`!@#$%^&*()_+-={}[]:;',./<>?";
+
+        
+         AlphaBet alpha = new AlphaBet();
+
         public MainWindow()
         {
+            //LoadAlpha.ExportJson();
             InitializeComponent();
         }
 
         private void Calc_Click(object sender, RoutedEventArgs e)
         {
-            VovelsCount.Text = CounterLetters.Count(InputText.Text.ToString(), vovels).ToString();
-            ConsCount.Text = CounterLetters.Count(InputText.Text.ToString(), cons).ToString();
-            SymbolCount.Text = CounterLetters.Count(InputText.Text.ToString(), symbols).ToString();
+            var text = InputText.Text.ToString();
+            Calculate(text);
+
+        }
+
+        private async Task Calculate(string text)
+        {
+            await Task.Run(() => VovelsVeiw(text));
+            await Task.Run(() => ConsVeiw(text));
+            await Task.Run(() => SymbolView(text));
+        }
+
+        void VovelsVeiw(string text)
+        {
+            VovelsCount.Text = CounterLetters.Count(text, alpha.vovels).ToString();
+        }
+        void ConsVeiw(string text)
+        {
+            ConsCount.Text = CounterLetters.Count(text, alpha.cons).ToString();
+        }
+        void SymbolView(string text)
+        {
+
+            SymbolCount.Text = CounterLetters.Count(text, alpha.symbols).ToString();
+        }
+
+        private void Lang_Selected(object sender, RoutedEventArgs e)
+        {
+            if (RU.IsSelected)
+            {
+                InputText.Text = "Введите текст на русском языке:";
+                alpha = LoadAlpha.Load("RU");
+            }
+            else
+            {
+                InputText.Text = "Input English text:";
+                alpha = LoadAlpha.Load("EN");
+
+            }
 
         }
     }
+
+
+
 }

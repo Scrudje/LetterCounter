@@ -12,7 +12,7 @@
 
 
     <Style x:Key="StyleTextBox" TargetType="TextBox" BasedOn="{StaticResource StyleDefault}">
-        <Setter Property="Width" Value="750"/>
+        <Setter Property="Width" Value="550"/>
         <Setter Property="Height" Value="250"/>
         <Setter Property="AcceptsReturn" Value="True"/>
         <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
@@ -23,8 +23,8 @@
 
     <Style x:Key="StyleButton" TargetType="Button">
         <Setter Property="Background" Value="LightGray"/>
-        <Setter Property="Margin" Value="25 20 0 0"/>
-        <Setter Property="Width" Value="90"/>
+        <Setter Property="Margin" Value="17 20 0 0"/>
+        <Setter Property="Width" Value="110"/>
         <Setter Property="Height" Value="70"/>
     </Style>
 
@@ -39,6 +39,14 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Right"/>
         <Setter Property="Foreground" Value="Green"/>
+    </Style>
+
+    <Style x:Key="StyleCombo" TargetType="ComboBox">
+        <Setter Property="Width" Value="110"/>
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Margin" Value="60 25 0 0"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>        
 
 
     </Style>

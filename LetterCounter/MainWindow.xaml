@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LetterCounter"
         mc:Ignorable="d"
-        Title="LetterCounter" Height="450" Width="800">
+        Title="LetterCounter" Height="450" Width="600">
 
     <Window.Resources>
         <ResourceDictionary Source="MainWindowStyles.xaml"/>
@@ -13,9 +13,7 @@
 
 
     <StackPanel x:Name="Main" Style="{StaticResource StyleMain}">
-        <TextBox x:Name="InputText" Style="{StaticResource StyleTextBox}">
-           Введите текст:
-        </TextBox>
+        <TextBox x:Name="InputText" Style="{StaticResource StyleTextBox}"/>
         <WrapPanel>
             <Button x:Name="Calc" Style="{StaticResource StyleButton}" Click="Calc_Click">
                 Рассчитать
@@ -35,7 +33,15 @@
                 </WrapPanel>
 
             </StackPanel>
-            
+            <ComboBox x:Name="Lang" Style="{StaticResource StyleCombo}"  SelectionChanged="Lang_Selected">
+                <ComboBoxItem x:Name="RU" IsSelected="True">
+                     <TextBlock >Русский</TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem x:Name="EN" IsSelected="False">
+                     <TextBlock >English</TextBlock>
+                </ComboBoxItem>                
+            </ComboBox>
+
         </WrapPanel>
         
         
